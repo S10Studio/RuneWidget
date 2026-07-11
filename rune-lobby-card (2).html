@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rune Lobby Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  }
+
+  .card {
+    width: 480px;
+    height: 220px;
+    background-color: #000000;
+    border: 2px solid #ff2d6d;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 24px;
+    box-sizing: border-box;
+    box-shadow:
+      0 0 8px rgba(255, 45, 109, 0.85),
+      0 0 20px rgba(255, 45, 109, 0.65),
+      0 0 45px rgba(255, 45, 109, 0.45),
+      0 0 80px rgba(255, 45, 109, 0.25),
+      inset 0 0 25px rgba(255, 45, 109, 0.15);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 45, 109, 0.35) 0%, rgba(255, 45, 109, 0.15) 45%, rgba(255, 45, 109, 0) 70%);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+
+  .glow-circle.c1 {
+    width: 140px;
+    height: 140px;
+    top: -40px;
+    left: -30px;
+    animation: float1 9s ease-in-out infinite;
+  }
+
+  .glow-circle.c2 {
+    width: 100px;
+    height: 100px;
+    bottom: -30px;
+    right: -20px;
+    animation: float2 11s ease-in-out infinite;
+  }
+
+  .glow-circle.c3 {
+    width: 70px;
+    height: 70px;
+    bottom: 10px;
+    left: 40px;
+    animation: float3 7s ease-in-out infinite;
+  }
+
+  .glow-circle.c4 {
+    width: 90px;
+    height: 90px;
+    top: 20px;
+    right: 60px;
+    animation: float4 10s ease-in-out infinite;
+  }
+
+  .glow-circle.c5 {
+    width: 60px;
+    height: 60px;
+    top: 60px;
+    left: 200px;
+    animation: float5 8s ease-in-out infinite;
+  }
+
+  .glow-circle.c6 {
+    width: 110px;
+    height: 110px;
+    bottom: -50px;
+    left: 160px;
+    animation: float6 12s ease-in-out infinite;
+  }
+
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(60px, 30px); }
+    50% { transform: translate(30px, 60px); }
+    75% { transform: translate(90px, 10px); }
+  }
+
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0); }
+    30% { transform: translate(-50px, -40px); }
+    60% { transform: translate(-20px, -70px); }
+    80% { transform: translate(-60px, -20px); }
+  }
+
+  @keyframes float3 {
+    0%, 100% { transform: translate(0, 0); }
+    40% { transform: translate(50px, -20px); }
+    70% { transform: translate(20px, -50px); }
+  }
+
+  @keyframes float4 {
+    0%, 100% { transform: translate(0, 0); }
+    35% { transform: translate(-40px, 30px); }
+    65% { transform: translate(-70px, -10px); }
+  }
+
+  @keyframes float5 {
+    0%, 100% { transform: translate(0, 0); }
+    30% { transform: translate(40px, 40px); }
+    60% { transform: translate(-30px, 20px); }
+  }
+
+  @keyframes float6 {
+    0%, 100% { transform: translate(0, 0); }
+    35% { transform: translate(-30px, -40px); }
+    70% { transform: translate(40px, -60px); }
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .open-btn {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: #000000;
+    border: 2px solid #ff2d6d;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(255, 45, 109, 0.6);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .open-btn:hover {
+    box-shadow: 0 0 12px rgba(255, 45, 109, 0.9), 0 0 24px rgba(255, 45, 109, 0.5);
+    transform: translateX(-50%) translateY(-1px);
+  }
+
+  .subtitle {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .name {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 2.5px;
+    white-space: nowrap;
+    max-width: 420px;
+    overflow: hidden;
+    text-shadow:
+      0 0 14px rgba(255, 255, 255, 0.55),
+      0 0 30px rgba(255, 45, 109, 0.35);
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="glow-circle c1"></div>
+    <div class="glow-circle c2"></div>
+    <div class="glow-circle c3"></div>
+    <div class="glow-circle c4"></div>
+    <div class="glow-circle c5"></div>
+    <div class="glow-circle c6"></div>
+    <div class="card-content">
+      <p class="subtitle">Join my Rune lobby!</p>
+      <div class="name" id="nameText">YourNameHere</div>
+    </div>
+    <a class="open-btn" href="https://script.google.com/macros/s/AKfycbzhpaZ5niT4OPrk9iEC3vnHF0F11GH4kp2w_GVo0Vw-qPiHOysf2TjDSePwt5vaLQAE/exec" target="_blank" rel="noopener noreferrer">Open Rune</a>
+  </div>
+
+  <script>
+    function fitNameText() {
+      var el = document.getElementById('nameText');
+      var maxWidth = 420;
+      var fontSize = 26;
+      el.style.fontSize = fontSize + 'px';
+      while (el.scrollWidth > maxWidth && fontSize > 12) {
+        fontSize -= 1;
+        el.style.fontSize = fontSize + 'px';
+      }
+    }
+    fitNameText();
+  </script>
+
+</body>
+</html>
